@@ -43,9 +43,17 @@ Live updates still go through Socket.IO to the web dashboard and VitalSync phone
 1. Open Android Studio → **Open** → select this folder:  
    `Soldier-Health-System/wearos`
 2. **File → Sync Project with Gradle Files** (first sync downloads deps).  
-   If you see `403 Forbidden` from `repo.maven.apache.org`, this project already uses Google’s Maven Central mirror in `settings.gradle.kts`. Sync again after opening this folder. Still blocked? try a VPN, then Sync.
+   If you see `403 Forbidden` from `repo.maven.apache.org` or `Connection timed out: getsockopt`, this project uses Google + Aliyun mirrors (Huawei is avoided — it hangs on many PK ISPs). Sync again after opening this folder. Still blocked? try a VPN, then Sync. **Do not** set an HTTP proxy in the IDE unless your campus/office network actually requires one.
 3. Device Manager → create **Wear OS** virtual device (API 30+).  
-4. Run the `app` configuration on the Wear emulator.
+   Prefer **Wear OS 3 / API 30** or **Wear OS 4 / API 33** if API 35 crashes on your PC.  
+   In AVD settings: **RAM ≥ 1536 MB**, Graphics = **Software – GLES 2.0** (Intel HD GPUs often crash with Automatic/Hardware).  
+4. Start the AVD from Device Manager ▶, wait until the watch face appears, then Run `app` once.
+
+### Emulator crashed? (“process … has terminated”)
+1. Device Manager → ▼ on the AVD → **Cold Boot Now** (or **Wipe Data**).  
+2. If it still dies: edit the AVD → Graphics **Software**, RAM **1536+**.  
+3. Avoid clicking Run while the device is still “activating”.  
+4. Optional: close other heavy apps — Wear API 35 needs free RAM.
 
 ### API URL cheat-sheet
 
