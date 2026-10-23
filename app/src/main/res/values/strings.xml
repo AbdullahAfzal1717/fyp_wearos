@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VitalSync Wear</string>
+    <string name="stream_notification_title">VitalSync streaming</string>
+    <string name="stream_notification_text">Uploading vitals to Command-X</string>
+</resources>
